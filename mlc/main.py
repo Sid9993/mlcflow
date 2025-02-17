@@ -13,6 +13,8 @@ import mlc.utils as utils
 from pathlib import Path
 from colorama import Fore, Style, init
 import shutil
+from mlc.actions import Action, RepoAction, ScriptAction, CacheAction
+
 
 # Initialize colorama for Windows support
 init(autoreset=True)
@@ -53,7 +55,7 @@ def setup_logging(log_path = os.getcwd(),log_file = 'mlc-log.txt'):
 
 
 # Base class for CLI actions
-class Action:
+# class Action:
     repos_path = None
     cfg = None
     action_type = None
@@ -1041,7 +1043,7 @@ class Automation:
 
 # Child classes for specific entities (Repo, Script, Cache)
 # Extends Action class
-class RepoAction(Action):
+# class RepoAction(Action):
 
     def __init__(self, parent=None):
         if parent is None:
@@ -1391,7 +1393,7 @@ class RepoAction(Action):
         return {"return": 0}
         
 
-class ScriptAction(Action):
+# class ScriptAction(Action):
     parent = None
     def __init__(self, parent=None):
         if parent is None:
@@ -1554,7 +1556,7 @@ class ScriptExecutionError(Exception):
     """Custom error for configuration issues."""
     pass
 
-class CacheAction(Action):
+# class CacheAction(Action):
 
     def __init__(self, parent=None):
         if parent is None:
